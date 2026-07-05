@@ -693,10 +693,6 @@ body.light{--bg:#f4f5f7;--bg2:#ffffff;--bg3:#eef0f4;--card:#ffffff;--card2:#f8f9
   </div>
 </div>
 
-<div class="xp-toast" id="xp-toast">
-  <div style="font-size:20px">⚡</div>
-  <div><div style="font-weight:700;color:var(--white)" id="xp-title">+150 XP</div><div style="font-size:11px;color:var(--red);font-weight:700" id="xp-sub">Mission Complete!</div></div>
-</div>
 
 <aside id="sidebar">
   <div id="logo">
@@ -705,7 +701,7 @@ body.light{--bg:#f4f5f7;--bg2:#ffffff;--bg3:#eef0f4;--card:#ffffff;--card2:#f8f9
       <input type="file" id="logo-file" accept="image/png,image/jpeg,image/jpg" style="display:none">
       <div class="logo-upload-box">
         <div id="logo-placeholder" class="logo-upload-placeholder">
-          <div style="font-size:22px">🏋️</div>
+          <div style="font-size:22px">🪚</div>
           <div style="font-size:9px;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;font-weight:700">Upload Logo</div>
           <div style="font-size:9px;color:var(--muted);opacity:.6">PNG or JPG</div>
         </div>
@@ -719,7 +715,7 @@ body.light{--bg:#f4f5f7;--bg2:#ffffff;--bg3:#eef0f4;--card:#ffffff;--card2:#f8f9
     <div class="nav-section">Command</div>
     <div class="nav-item active" onclick="nav('dashboard')"><span class="nav-icon">🏠</span>Dashboard</div>
     <div class="nav-item" onclick="nav('factory')"><span class="nav-icon">🏭</span>Factory Floor</div>
-    <div class="nav-item" onclick="nav('approval')"><span class="nav-icon">✅</span>Approval Center<span class="nav-badge" id="approval-count">4</span></div>
+    <div class="nav-item" onclick="nav('approval')"><span class="nav-icon">✅</span>Approval Center<span class="nav-badge" id="approval-count">0</span></div>
     <div class="nav-item" onclick="nav('library')"><span class="nav-icon">📚</span>Brief Library</div>
     <div class="nav-item" onclick="nav('campaignlib')"><span class="nav-icon">📝</span>Campaign Library</div>
     <div class="nav-section">Agents</div>
@@ -739,26 +735,20 @@ body.light{--bg:#f4f5f7;--bg2:#ffffff;--bg3:#eef0f4;--card:#ffffff;--card2:#f8f9
   <div id="sidebar-footer">
     <div class="footer-role">⚡ Admin</div>
     <div class="footer-name">Seguin Cabinetry</div>
-    <div class="footer-xp" id="xp-display">Level 7 · 2,340 / 3,000 XP</div>
-    <div class="xp-bar"><div class="xp-fill" id="xp-bar-fill"></div></div>
   </div>
 </aside>
 
 <div id="main">
   <div id="topbar">
     <div class="page-title" id="page-title">Command Dashboard</div>
-    <div class="top-chip"><span class="dot"></span>5 Agents Live</div>
-    <div class="top-chip" id="score-chip">🏆 847 pts</div>
-    <div class="top-chip warn" onclick="openModal('alert-modal')"><span class="dot warn"></span>3 Alerts</div>
+    <div class="top-chip"><span class="dot"></span>4 Agents Live</div>
+    <div class="top-chip warn" onclick="openModal('alert-modal')"><span class="dot"></span>No alerts</div>
     <div class="top-chip" onclick="toggleTheme()">🌙 Dark</div>
-    <div class="level-badge">LVL 7</div>
   </div>
   <div id="content">
 
   <!-- DASHBOARD -->
   <div class="page active" id="page-dashboard">
-    <div class="alert alert-warn"><span>⚠ Underperforming:</span> No campaign alerts yet — these appear once you're running ads and logging metrics.</div>
-    <div class="alert alert-info"><span>ℹ Check-ins due today:</span> Jane Martinez · Mike Torres · Lisa Wong</div>
     <div class="grid g5" style="margin:16px 0">
       <div class="kpi kpi-accent"><div class="kpi-label">Ad Spend / Mo</div><div class="kpi-value">—</div><div class="kpi-sub">No data yet</div></div>
       <div class="kpi"><div class="kpi-label">Leads Generated</div><div class="kpi-value">—</div><div class="kpi-sub">No data yet</div></div>
@@ -766,64 +756,9 @@ body.light{--bg:#f4f5f7;--bg2:#ffffff;--bg3:#eef0f4;--card:#ffffff;--card2:#f8f9
       <div class="kpi"><div class="kpi-label">Web Traffic</div><div class="kpi-value">—</div><div class="kpi-sub">Awaiting GA feed</div></div>
       <div class="kpi"><div class="kpi-label">Sales</div><div class="kpi-value">—</div><div class="kpi-sub">Offline — upload monthly</div></div>
     </div>
-    <div class="grid g2" style="gap:16px;margin-bottom:16px">
-      <div class="card">
-        <div class="card-title">Performance Scores</div>
-        <div class="grid g5" style="gap:8px">
-          <div class="score-block"><div class="score-number" style="color:var(--red)">82</div><div class="score-name">Campaign</div></div>
-          <div class="score-block"><div class="score-number" style="color:var(--green)">91</div><div class="score-name">Coaching</div></div>
-          <div class="score-block"><div class="score-number" style="color:var(--cyan)">74</div><div class="score-name">Content</div></div>
-          <div class="score-block"><div class="score-number" style="color:var(--amber)">68</div><div class="score-name">Leads</div></div>
-          <div class="score-block"><div class="score-number" style="color:var(--purple)">88</div><div class="score-name">Revenue</div></div>
-        </div>
-        <div class="divider"></div>
-        <div class="pbar-wrap"><div class="pbar-label"><span>Revenue Goal</span><span style="color:var(--red)">68%</span></div><div class="pbar"><div class="pbar-fill" style="width:68%;background:var(--red)"></div></div></div>
-        <div class="pbar-wrap"><div class="pbar-label"><span>Ad Spend</span><span style="color:var(--amber)">62%</span></div><div class="pbar"><div class="pbar-fill" style="width:62%;background:var(--amber)"></div></div></div>
-        <div class="pbar-wrap"><div class="pbar-label"><span>Subscriber Goal</span><span style="color:var(--green)">94%</span></div><div class="pbar"><div class="pbar-fill" style="width:94%;background:var(--green)"></div></div></div>
-      </div>
-      <div class="card">
-        <div class="card-title">🎯 Weekly Missions</div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <div class="mission-card" onclick="awardXP(150,'Mission Unlocked!','Launch Summer Shred Campaign')">
-            <div class="mission-xp">+150 XP</div>
-            <div class="mission-title">Launch Summer Shred Campaign</div>
-            <div class="mission-desc">Create, approve &amp; publish a full campaign brief</div>
-            <div class="pbar" style="margin-top:8px"><div class="pbar-fill" style="width:60%;background:var(--red)"></div></div>
-          </div>
-          <div class="mission-card" onclick="awardXP(80,'Mission Unlocked!','Onboard 3 New Subscribers')">
-            <div class="mission-xp">+80 XP</div>
-            <div class="mission-title">Onboard 3 New Subscribers</div>
-            <div class="mission-desc">Complete intake, program assignment &amp; welcome message</div>
-            <div class="pbar" style="margin-top:8px"><div class="pbar-fill" style="width:33%;background:var(--green)"></div></div>
-          </div>
-          <div class="mission-card" onclick="awardXP(50,'Mission Unlocked!','Clear Approval Queue')">
-            <div class="mission-xp">+50 XP</div>
-            <div class="mission-title">Clear Approval Queue</div>
-            <div class="mission-desc">4 items pending review — approve or revise all</div>
-            <div class="pbar" style="margin-top:8px"><div class="pbar-fill" style="width:0%;background:var(--cyan)"></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="grid g2" style="gap:16px">
-      <div class="card">
-        <div class="card-title">Tasks Due Today</div>
-        <table><thead><tr><th>Task</th><th>Agent</th><th>Priority</th></tr></thead><tbody>
-          <tr><td>Write Summer Shred ad copy</td><td>Promotions</td><td><span style="color:var(--danger);font-size:10px;font-weight:700">HIGH</span></td></tr>
-          <tr><td>Review client check-ins (3)</td><td>Coaching</td><td><span style="color:var(--danger);font-size:10px;font-weight:700">HIGH</span></td></tr>
-          <tr><td>Facebook graphic brief</td><td>Design</td><td><span style="color:var(--amber);font-size:10px;font-weight:700">MED</span></td></tr>
-          <tr><td>Weekly analytics report</td><td>Analytics</td><td><span style="color:var(--green);font-size:10px;font-weight:700">LOW</span></td></tr>
-        </tbody></table>
-      </div>
-      <div class="card">
-        <div class="card-title">Pending Approvals</div>
-        <table><thead><tr><th>Item</th><th>Type</th><th>Status</th></tr></thead><tbody>
-          <tr><td>Summer Shred Ad Copy v1</td><td>Ad Copy</td><td><span class="badge badge-pending">Pending</span></td></tr>
-          <tr><td>July IG Post — Transformation</td><td>Social</td><td><span class="badge badge-pending">Pending</span></td></tr>
-          <tr><td>Facebook Graphic 1080×1080</td><td>Design</td><td><span class="badge badge-revision">Revision</span></td></tr>
-          <tr><td>Welcome — J. Martinez</td><td>Coaching</td><td><span class="badge badge-draft">Draft</span></td></tr>
-        </tbody></table>
-      </div>
+        <div class="card">
+      <div class="card-title">Pending Approvals</div>
+      <div id="dash-approvals"><div style="color:var(--muted2);font-size:13px;padding:12px 0">Loading…</div></div>
     </div>
   </div>
 
@@ -1515,15 +1450,7 @@ document.getElementById('logo-file').addEventListener('change', function(e) {
 
 // ===== XP =====
 let totalXP=2340,level=7;
-function awardXP(amount,title,sub){
-  totalXP+=amount;
-  const t=document.getElementById('xp-toast');
-  document.getElementById('xp-title').textContent='+'+amount+' XP';
-  document.getElementById('xp-sub').textContent=sub||title;
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3000);
-  updateXPBar();
-}
+function awardXP(){ /* gamification disabled in lean model */ }
 function updateXPBar(){
   const next=level*500+2500,prev=(level-1)*500+2500;
   const pct=Math.min(100,((totalXP-prev)/(next-prev))*100);
@@ -1562,6 +1489,7 @@ function nav(id){
   if(id==='knowledge')renderKB();
   if(id==='integrations')renderIntegrations();
   if(id==='agentconfig')renderAgentConfig();
+  if(id==='dashboard')renderDashApprovals();
   if(id==='analytics')loadAthenaCampaigns();
   if(id==='pantheon')renderPantheon();
 }
@@ -5477,6 +5405,27 @@ const APOLLO_FUNCTION_URL = 'https://qssbdbqvokxefutdelys.supabase.co/functions/
 // ═══ ATHENA (analytics agent) — wired to athena-analytics edge function ═══
 const ATHENA_FUNCTION_URL = 'https://qssbdbqvokxefutdelys.supabase.co/functions/v1/athena-analytics';
 
+async function renderDashApprovals(){
+  const el = document.getElementById('dash-approvals');
+  if(!el) return;
+  el.innerHTML = '<div style="color:var(--muted2);font-size:13px;padding:12px 0">Loading…</div>';
+  try{
+    const briefs = await window.TISM_DB.briefs.list({ status:'pending_approval' });
+    const badge = document.getElementById('approval-count');
+    if(badge) badge.textContent = briefs.length;
+    if(!briefs.length){
+      el.innerHTML = '<div style="color:var(--muted2);font-size:13px;padding:12px 0">🎉 Nothing pending. Generate a brief in the Research Agent to get started.</div>';
+      return;
+    }
+    el.innerHTML = '<table><thead><tr><th>Brief</th><th>Type</th><th>Status</th></tr></thead><tbody>'+
+      briefs.map(function(b){ return '<tr><td>'+_escAthena(b.title||'Untitled')+'</td><td>'+_escAthena(b.category||'campaign')+'</td><td><span class="badge badge-pending">Pending</span></td></tr>'; }).join('')+
+      '</tbody></table><div style="margin-top:10px"><button class="btn btn-ghost btn-sm" onclick="nav(\'approval\')">Open Approval Center →</button></div>';
+  }catch(e){
+    el.innerHTML = '<div style="color:var(--danger);font-size:13px;padding:12px 0">Error: '+_escAthena(e.message||e)+'</div>';
+  }
+}
+
+
 function _escAthena(s){ return String(s==null?'':s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
 
 async function loadAthenaCampaigns(){
@@ -8190,6 +8139,7 @@ renderAgentConfig();
   function dismissGate() {
     gate.classList.add('dismissed');
     injectLogoutControl();
+    if(typeof renderDashApprovals==='function') renderDashApprovals();
   }
 
   function injectLogoutControl() {
