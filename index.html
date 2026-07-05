@@ -757,14 +757,14 @@ body.light{--bg:#f4f5f7;--bg2:#ffffff;--bg3:#eef0f4;--card:#ffffff;--card2:#f8f9
 
   <!-- DASHBOARD -->
   <div class="page active" id="page-dashboard">
-    <div class="alert alert-warn"><span>⚠ Underperforming:</span> Instagram Nutrition Consult — CPL $35.56 vs $30 target.</div>
+    <div class="alert alert-warn"><span>⚠ Underperforming:</span> No campaign alerts yet — these appear once you're running ads and logging metrics.</div>
     <div class="alert alert-info"><span>ℹ Check-ins due today:</span> Jane Martinez · Mike Torres · Lisa Wong</div>
     <div class="grid g5" style="margin:16px 0">
-      <div class="kpi kpi-accent"><div class="kpi-label">Ad Spend / Mo</div><div class="kpi-value">$1,240</div><div class="kpi-sub">of $2,000 budget</div></div>
-      <div class="kpi"><div class="kpi-label">Leads Generated</div><div class="kpi-value kpi-up">38</div><div class="kpi-sub kpi-up">↑ 12 vs last mo</div></div>
-      <div class="kpi"><div class="kpi-label">Cost Per Lead</div><div class="kpi-value">$32.63</div><div class="kpi-sub kpi-up">↓ $4.10</div></div>
-      <div class="kpi"><div class="kpi-label">Revenue</div><div class="kpi-value kpi-up">$6,840</div><div class="kpi-sub kpi-up">↑ 18%</div></div>
-      <div class="kpi"><div class="kpi-label">Active Subs</div><div class="kpi-value">47</div><div class="kpi-sub">+3 this week</div></div>
+      <div class="kpi kpi-accent"><div class="kpi-label">Ad Spend / Mo</div><div class="kpi-value">—</div><div class="kpi-sub">No data yet</div></div>
+      <div class="kpi"><div class="kpi-label">Leads Generated</div><div class="kpi-value">—</div><div class="kpi-sub">No data yet</div></div>
+      <div class="kpi"><div class="kpi-label">Cost Per Lead</div><div class="kpi-value">—</div><div class="kpi-sub">No data yet</div></div>
+      <div class="kpi"><div class="kpi-label">Web Traffic</div><div class="kpi-value">—</div><div class="kpi-sub">Awaiting GA feed</div></div>
+      <div class="kpi"><div class="kpi-label">Sales</div><div class="kpi-value">—</div><div class="kpi-sub">Offline — upload monthly</div></div>
     </div>
     <div class="grid g2" style="gap:16px;margin-bottom:16px">
       <div class="card">
@@ -1235,92 +1235,52 @@ body.light{--bg:#f4f5f7;--bg2:#ffffff;--bg3:#eef0f4;--card:#ffffff;--card2:#f8f9
 
   <!-- ANALYTICS AGENT -->
   <div class="page" id="page-analytics">
-    <div class="agent-page-layout">
-      <!-- ARCHED WINDOW INTO ATHENA'S SANCTUM (The Observatory) -->
-      <div class="agent-god-window" style="--g-top:#1a4a5a;--g-mid:#0d2d3a;--g-bot:#04090d">
-        <div class="agent-god-window-arch">
-          <div class="agent-god-window-pillar left"></div>
-          <div class="agent-god-window-pillar right"></div>
-          <div class="agent-god-window-floor"></div>
-          <img class="agent-god-window-figure" id="agw-athena" alt="Athena">
-        </div>
-        <div class="agent-god-window-plate">
-          <div class="name">ATHENA</div>
-          <div class="role">The Observatory · Analytics</div>
-        </div>
-      </div>
-
+    <div style="padding:20px">
       <div class="agent-page-content">
-        <div class="section-header"><div><div class="section-title">📊 Analytics Agent — Athena</div><div class="section-sub">Marketing, coaching, revenue &amp; social performance</div></div></div>
+        <div class="section-header"><div><div class="section-title">📊 Analytics Agent — Athena</div><div class="section-sub">Marketing &amp; acquisition-funnel performance</div></div></div>
         <div style="display:flex;gap:8px;margin-bottom:18px">
-          <button class="btn btn-primary btn-sm" onclick="showAnalyticsTab('overview')">Overview</button>
-          <button class="btn btn-ghost btn-sm" onclick="showAnalyticsTab('marketing')">Marketing</button>
-          <button class="btn btn-ghost btn-sm" onclick="showAnalyticsTab('coaching')">Coaching</button>
-          <button class="btn btn-ghost btn-sm" onclick="showAnalyticsTab('import')">Import / Export</button>
+          <button class="btn btn-primary btn-sm" onclick="showAnalyticsTab('analysis')">Analysis</button>
+          <button class="btn btn-ghost btn-sm" onclick="showAnalyticsTab('logmetrics')">Log Metrics</button>
         </div>
-      <div id="analytics-overview">
-        <div class="grid g4" style="margin-bottom:16px">
-          <div class="kpi kpi-accent"><div class="kpi-label">Impressions</div><div class="kpi-value">42,830</div><div class="kpi-sub kpi-up">↑ 8%</div></div>
-          <div class="kpi"><div class="kpi-label">Clicks</div><div class="kpi-value">1,247</div><div class="kpi-sub">CTR 2.91%</div></div>
-          <div class="kpi"><div class="kpi-label">ROAS</div><div class="kpi-value kpi-up">3.8×</div><div class="kpi-sub">Target 3.0×</div></div>
-          <div class="kpi"><div class="kpi-label">Net Revenue Est.</div><div class="kpi-value">$5,600</div><div class="kpi-sub kpi-up">↑ 18%</div></div>
+
+        <div id="analytics-analysis">
+          <div class="card" style="margin-bottom:14px">
+            <div class="card-title">Run Athena Analysis</div>
+            <div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap">
+              <div style="flex:1;min-width:220px">
+                <label class="form-label">Scope</label>
+                <select id="athena-campaign-select" class="form-select"><option value="">All campaigns (portfolio)</option></select>
+              </div>
+              <button class="btn btn-primary" onclick="runAthenaAnalysis()">⚡ Run Analysis</button>
+            </div>
+            <div class="kpi-sub" style="margin-top:8px">Athena reads only logged metrics. She flags what she can't see (closed sales / revenue) rather than guessing.</div>
+          </div>
+          <div id="athena-results">
+            <div class="card" style="text-align:center;color:var(--muted)">
+              <div style="font-size:28px;margin-bottom:6px">📊</div>
+              <div>No analysis yet. Log some campaign metrics, then run Athena.</div>
+            </div>
+          </div>
         </div>
-        <div class="grid g2" style="gap:14px">
+
+        <div id="analytics-logmetrics" style="display:none">
           <div class="card">
-            <div class="card-title">Marketing Performance</div>
-            <div class="pbar-wrap"><div class="pbar-label"><span>Leads vs Goal (50)</span><span style="color:var(--red)">38</span></div><div class="pbar"><div class="pbar-fill" style="width:76%;background:var(--red)"></div></div></div>
-            <div class="pbar-wrap"><div class="pbar-label"><span>ROAS vs Target</span><span style="color:var(--green)">3.8/3.0</span></div><div class="pbar"><div class="pbar-fill" style="width:100%;background:var(--green)"></div></div></div>
-            <div class="pbar-wrap"><div class="pbar-label"><span>CTR Performance</span><span style="color:var(--cyan)">2.91%</span></div><div class="pbar"><div class="pbar-fill" style="width:73%;background:var(--cyan)"></div></div></div>
-            <div class="pbar-wrap"><div class="pbar-label"><span>Ad Spend Used</span><span style="color:var(--amber)">$1,240/$2,000</span></div><div class="pbar"><div class="pbar-fill" style="width:62%;background:var(--amber)"></div></div></div>
-          </div>
-          <div class="card">
-            <div class="card-title">Social Media</div>
-            <div class="grid g2" style="gap:8px">
-              <div class="kpi" style="padding:10px"><div class="kpi-label">Posts</div><div class="kpi-value" style="font-size:20px">12</div></div>
-              <div class="kpi" style="padding:10px"><div class="kpi-label">Engagement</div><div class="kpi-value" style="font-size:20px">4.2%</div></div>
-              <div class="kpi" style="padding:10px"><div class="kpi-label">Followers +</div><div class="kpi-value" style="font-size:20px;color:var(--green)">+84</div></div>
-              <div class="kpi" style="padding:10px"><div class="kpi-label">Profile Views</div><div class="kpi-value" style="font-size:20px">2,140</div></div>
+            <div class="card-title">Log Campaign Metrics (manual)</div>
+            <div class="kpi-sub" style="margin-bottom:12px">Enter numbers from Meta / Google Ads / GA by hand for now — API feeds will automate this later. Leave revenue blank if sales aren't tracked yet.</div>
+            <div class="grid g2" style="gap:10px">
+              <div><label class="form-label">Campaign</label><select id="m-campaign" class="form-select"></select></div>
+              <div><label class="form-label">Date</label><input id="m-date" type="date" class="form-input"></div>
+              <div><label class="form-label">Impressions</label><input id="m-impr" type="number" class="form-input" placeholder="0"></div>
+              <div><label class="form-label">Clicks</label><input id="m-clicks" type="number" class="form-input" placeholder="0"></div>
+              <div><label class="form-label">Spend ($)</label><input id="m-spend" type="number" step="0.01" class="form-input" placeholder="0"></div>
+              <div><label class="form-label">Leads / Conversions</label><input id="m-conv" type="number" class="form-input" placeholder="0"></div>
+              <div><label class="form-label">Revenue ($) — optional</label><input id="m-rev" type="number" step="0.01" class="form-input" placeholder="blank if untracked"></div>
+              <div><label class="form-label">Source</label><select id="m-source" class="form-select"><option value="manual">manual</option><option value="csv_import">csv_import</option></select></div>
             </div>
+            <div style="margin-top:14px"><button class="btn btn-primary" onclick="saveManualMetric()">💾 Save Metric Row</button> <span id="m-status" class="kpi-sub"></span></div>
           </div>
         </div>
-      </div>
-      <div id="analytics-marketing" style="display:none">
-        <div class="card"><div class="card-title">Campaign Performance</div>
-          <table><thead><tr><th>Campaign</th><th>Platform</th><th>Spend</th><th>Leads</th><th>CPL</th><th>ROAS</th><th>Status</th></tr></thead><tbody>
-            <tr><td>Summer Shred FB</td><td>Facebook</td><td>$480</td><td>18</td><td>$26.67</td><td>4.2×</td><td><span class="badge badge-approved">On Track</span></td></tr>
-            <tr><td>Nutrition Consult IG</td><td>Instagram</td><td>$320</td><td>9</td><td>$35.56</td><td>2.1×</td><td><span class="badge badge-pending">Review</span></td></tr>
-            <tr><td>Google Brand Search</td><td>Google</td><td>$140</td><td>6</td><td>$23.33</td><td>5.8×</td><td><span class="badge badge-approved">On Track</span></td></tr>
-          </tbody></table>
-        </div>
-      </div>
-      <div id="analytics-coaching" style="display:none">
-        <div class="grid g4">
-          <div class="kpi"><div class="kpi-label">Active Clients</div><div class="kpi-value">47</div></div>
-          <div class="kpi"><div class="kpi-label">Check-ins Done</div><div class="kpi-value kpi-up">89%</div></div>
-          <div class="kpi"><div class="kpi-label">Avg Progress</div><div class="kpi-value">+2.1 lbs</div></div>
-          <div class="kpi"><div class="kpi-label">Need Review</div><div class="kpi-value kpi-down">3</div></div>
-        </div>
-      </div>
-      <div id="analytics-import" style="display:none">
-        <div class="grid g2" style="gap:14px">
-          <div class="card"><div class="card-title">CSV Import</div>
-            <div style="display:flex;flex-direction:column;gap:8px">
-              <button class="btn btn-ghost">📤 Ad Performance CSV</button>
-              <button class="btn btn-ghost">📤 Social Performance CSV</button>
-              <button class="btn btn-ghost">📤 Trainerize Client Data</button>
-              <button class="btn btn-ghost">📤 Revenue Report CSV</button>
-            </div>
-          </div>
-          <div class="card"><div class="card-title">Export Reports</div>
-            <div style="display:flex;flex-direction:column;gap:8px">
-              <button class="btn btn-ghost" onclick="nav('reports')">📥 Weekly Report</button>
-              <button class="btn btn-ghost">📥 Campaign Plans</button>
-              <button class="btn btn-ghost">📥 Client Checklists</button>
-              <button class="btn btn-ghost">📥 Analytics Summary</button>
-            </div>
-          </div>
-        </div>
-      </div>
+
       </div>
     </div>
   </div>
@@ -1453,7 +1413,7 @@ body.light{--bg:#f4f5f7;--bg2:#ffffff;--bg3:#eef0f4;--card:#ffffff;--card2:#f8f9
 <div class="modal-overlay" id="alert-modal" onclick="if(event.target===this)closeModal('alert-modal')">
   <div class="modal">
     <div class="modal-title">🔔 System Alerts <span class="modal-close" onclick="closeModal('alert-modal')">✕</span></div>
-    <div class="alert alert-warn"><span>⚠ Campaign Alert:</span> Instagram Nutrition Consult — CPL $35.56 vs $30 target.</div>
+    <div class="alert alert-warn"><span>⚠ Campaign Alert:</span> No campaign alerts yet — these appear once you're running ads and logging metrics.</div>
     <div class="alert alert-info"><span>ℹ Check-ins Due:</span> Jane Martinez · Mike Torres · Lisa Wong — all due today.</div>
     <div class="alert"><span>📊 Report Ready:</span> Analytics Agent monthly report is ready to review.</div>
   </div>
@@ -1602,6 +1562,7 @@ function nav(id){
   if(id==='knowledge')renderKB();
   if(id==='integrations')renderIntegrations();
   if(id==='agentconfig')renderAgentConfig();
+  if(id==='analytics')loadAthenaCampaigns();
   if(id==='pantheon')renderPantheon();
 }
 
@@ -5513,6 +5474,99 @@ async function runPromo(){
 
 const APOLLO_FUNCTION_URL = 'https://qssbdbqvokxefutdelys.supabase.co/functions/v1/apollo-design';
 
+// ═══ ATHENA (analytics agent) — wired to athena-analytics edge function ═══
+const ATHENA_FUNCTION_URL = 'https://qssbdbqvokxefutdelys.supabase.co/functions/v1/athena-analytics';
+
+function _escAthena(s){ return String(s==null?'':s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];}); }
+
+async function loadAthenaCampaigns(){
+  try{
+    const list = await window.TISM_DB.campaigns.list();
+    const opts = (list||[]).map(function(c){return '<option value="'+c.id+'">'+_escAthena(c.name)+'</option>';}).join('');
+    const sel = document.getElementById('athena-campaign-select');
+    if(sel) sel.innerHTML = '<option value="">All campaigns (portfolio)</option>'+opts;
+    const msel = document.getElementById('m-campaign');
+    if(msel) msel.innerHTML = (list&&list.length)?opts:'<option value="">No campaigns yet — create one first</option>';
+  }catch(e){ console.error('loadAthenaCampaigns',e); }
+}
+
+async function runAthenaAnalysis(){
+  const out = document.getElementById('athena-results');
+  const cid = document.getElementById('athena-campaign-select') ? document.getElementById('athena-campaign-select').value : null;
+  out.innerHTML = '<div class="card generating" style="min-height:120px"></div>';
+  try{
+    const session = await window.TISM_DB.auth.currentSession();
+    if(!session || !session.access_token) throw new Error('Not logged in. Please refresh and log in again.');
+    const resp = await fetch(ATHENA_FUNCTION_URL, {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+session.access_token},
+      body: JSON.stringify({ campaign_id: cid || null })
+    });
+    const data = await resp.json();
+    if(!resp.ok || !data.success) throw new Error(data.error || 'Analysis failed');
+    renderAthenaReport(data.report, data.metadata);
+  }catch(e){
+    out.innerHTML = '<div class="card" style="color:var(--danger)">Athena error: '+ _escAthena(e.message||e) +'</div>';
+  }
+}
+
+function renderAthenaReport(r, meta){
+  const out = document.getElementById('athena-results');
+  if(!r){ out.innerHTML='<div class="card">No report returned.</div>'; return; }
+  let h = '';
+  h += '<div class="card" style="margin-bottom:12px"><div class="card-title">'+_escAthena(r.report_title||'Analysis')+'</div>';
+  if(r.period) h += '<div class="kpi-sub" style="margin-bottom:8px">'+_escAthena(r.period)+'</div>';
+  h += '<div>'+_escAthena(r.executive_summary||'')+'</div></div>';
+  if(Array.isArray(r.kpi_snapshot) && r.kpi_snapshot.length){
+    h += '<div class="grid g4" style="margin-bottom:12px">'+r.kpi_snapshot.map(function(k){
+      return '<div class="kpi"><div class="kpi-label">'+_escAthena(k.kpi)+'</div><div class="kpi-value" style="font-size:18px">'+_escAthena(k.value)+'</div><div class="kpi-sub">'+_escAthena(k.read)+'</div></div>';
+    }).join('')+'</div>';
+  }
+  function listCard(title, arr, fmt){
+    return (Array.isArray(arr) && arr.length) ? ('<div class="card" style="margin-bottom:12px"><div class="card-title">'+title+'</div>'+arr.map(fmt).join('')+'</div>') : '';
+  }
+  h += listCard("✅ What's Working", r.whats_working, function(x){
+    return '<div style="margin-bottom:8px"><b>'+_escAthena(x.observation)+'</b><br><span class="kpi-sub">'+_escAthena(x.evidence)+' — '+_escAthena(x.why)+'</span></div>';
+  });
+  h += listCard("⚠️ What's Breaking", r.whats_breaking, function(x){
+    return '<div style="margin-bottom:8px"><b>'+_escAthena(x.issue)+'</b> <span class="badge badge-pending">'+_escAthena(x.funnel_stage)+'</span><br><span class="kpi-sub">'+_escAthena(x.evidence)+' — '+_escAthena(x.likely_cause)+'</span></div>';
+  });
+  h += listCard("🎯 Recommendations", r.recommendations, function(x){
+    var cls = (x.priority==='high') ? 'badge-approved' : 'badge-pending';
+    return '<div style="margin-bottom:8px"><span class="badge '+cls+'">'+_escAthena(x.priority)+'</span> <b>'+_escAthena(x.action)+'</b><br><span class="kpi-sub">'+_escAthena(x.rationale)+'</span></div>';
+  });
+  if(Array.isArray(r.blind_spots) && r.blind_spots.length){
+    h += '<div class="card" style="margin-bottom:12px;border-color:var(--amber)"><div class="card-title">🔍 Blind Spots (what Athena can\'t see)</div>'+r.blind_spots.map(function(b){return '<div class="kpi-sub" style="margin-bottom:4px">• '+_escAthena(b)+'</div>';}).join('')+'</div>';
+  }
+  h += '<div class="kpi-sub">Confidence: '+_escAthena(r.confidence||'n/a')+(r.data_caveats?' · '+_escAthena(r.data_caveats):'')+(meta?' · '+_escAthena(meta.metrics_rows)+' metric rows':'')+'</div>';
+  out.innerHTML = h;
+}
+
+async function saveManualMetric(){
+  const st = document.getElementById('m-status');
+  const cidEl = document.getElementById('m-campaign');
+  const cid = cidEl ? cidEl.value : '';
+  const date = document.getElementById('m-date').value;
+  if(!cid){ st.textContent='Pick a campaign first.'; return; }
+  if(!date){ st.textContent='Pick a date.'; return; }
+  st.textContent='Saving...';
+  try{
+    const revVal = document.getElementById('m-rev').value;
+    await window.TISM_DB.campaigns.recordMetrics(cid, {
+      metric_date: date,
+      impressions: Number(document.getElementById('m-impr').value||0),
+      clicks: Number(document.getElementById('m-clicks').value||0),
+      spend_usd: Number(document.getElementById('m-spend').value||0),
+      conversions: Number(document.getElementById('m-conv').value||0),
+      revenue_usd: revVal===''?0:Number(revVal),
+      data_source: document.getElementById('m-source').value||'manual'
+    });
+    st.textContent='✅ Saved. Switch to Analysis and run Athena to see her read it.';
+    ['m-impr','m-clicks','m-spend','m-conv','m-rev'].forEach(function(id){var el=document.getElementById(id); if(el) el.value='';});
+  }catch(e){ st.textContent='Error: '+(e.message||e); }
+}
+
+
 let _apolloBriefCache = {};
 let _apolloVariantCache = {};
 
@@ -5918,7 +5972,7 @@ async function generateReport(){
   area.innerHTML='<div class="generating" style="min-height:300px"></div>';
   const p=`You are the Analytics Agent for Seguin Cabinetry, a family-owned custom cabinet shop in Seguin, TX serving the greater San Antonio area.
 Generate a professional weekly business performance report for week ending May 16, 2026.
-Data: Ad spend $1,240/$2,000 | Leads: 38 (goal 50) | CPL: $32.63 | Revenue: $6,840 (↑18%) | ROAS: 3.8× | Active subscribers: 47 (+3) | Impressions: 42,830 | CTR: 2.91% | Social followers: +84 | Underperforming: Instagram Nutrition Consult (CPL $35.56) | Clients needing check-in: 3
+Data: No performance data yet — this legacy view is superseded by the Athena analytics agent.
 Format with sections: EXECUTIVE SUMMARY | MARKETING HIGHLIGHTS | COACHING PERFORMANCE | REVENUE SUMMARY | ALERTS & RECOMMENDATIONS | NEXT WEEK PRIORITIES
 
 NOTE: This is the legacy analytics function. The new Pantheon Analytics Agent (Athena) running via Supabase Edge Functions will replace this once wired in.`;
@@ -6022,7 +6076,7 @@ function generateNutrition(type){
   out.style.color='var(--text)';
 }
 function showAnalyticsTab(tab){
-  ['overview','marketing','coaching','import'].forEach(t=>{const el=document.getElementById('analytics-'+t);if(el)el.style.display=t===tab?'block':'none';});
+  ['analysis','logmetrics'].forEach(t=>{const el=document.getElementById('analytics-'+t);if(el)el.style.display=t===tab?'block':'none';});
 }
 
 // ===== KB =====
